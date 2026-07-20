@@ -2,7 +2,12 @@
 
 > **FitForge AI** is a modern AI-powered fitness and nutrition coaching platform that delivers personalized workout routines, meal plans, and intelligent fitness guidance. Using Google Gemini AI, users receive adaptive recommendations based on their goals, progress, and conversation history, creating a smarter and more personalized fitness experience.
 
+## 🌐 Live Site
+
+🔗 **Live URL:** https://fitforge-gilt-omega.vercel.app
+
 ---
+
 # ✨ Key Features
 
 - 🤖 AI-powered personalized workout plan generation
@@ -14,6 +19,7 @@
 - 🔍 Search, filter, and sort fitness plans
 - 🔐 Secure Email/Password and Google Authentication
 - 📱 Fully responsive and modern user interface
+
 # 📦 NPM Packages
 
 - @google/genai
@@ -31,4 +37,3 @@
 - react-toastify
 - recharts
 - tailwindcss
-- zod

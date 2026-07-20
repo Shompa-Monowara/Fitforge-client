@@ -5,6 +5,8 @@ import { submitContactForm, ContactPayload } from "@/lib/api/contact";
 import { toast } from "react-toastify";
 import { FiMail, FiPhone, FiMapPin, FiSend, FiLoader } from "react-icons/fi";
 import { FiFacebook, FiInstagram, FiTwitter } from "react-icons/fi";
+import { FaFacebook, FaLinkedinIn } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 export default function ContactPage() {
   const [form, setForm] = useState<ContactPayload>({
@@ -92,14 +94,34 @@ export default function ContactPage() {
           <div className="bg-white border border-[#E2E8F0] rounded-2xl p-6">
             <p className="text-xs font-black text-[#94A3B8] uppercase tracking-wider mb-3">Follow Us</p>
             <div className="flex gap-3">
-              <a href="#" className="w-10 h-10 rounded-xl bg-[#F0FDF4] flex items-center justify-center text-[#22C55E] hover:bg-[#22C55E] hover:text-white transition-colors">
-                <FiFacebook />
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="w-10 h-10 rounded-xl bg-[#F0FDF4] flex items-center justify-center text-[#22C55E] hover:bg-[#22C55E] hover:text-white transition-colors"
+              >
+                <FaFacebook className="w-3.5 h-3.5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-xl bg-[#F0FDF4] flex items-center justify-center text-[#22C55E] hover:bg-[#22C55E] hover:text-white transition-colors">
-                <FiInstagram />
+
+              <a
+                href="https://x.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="X"
+                className="w-10 h-10 rounded-xl bg-[#F0FDF4] flex items-center justify-center text-[#22C55E] hover:bg-[#22C55E] hover:text-white transition-colors"
+              >
+                <FaXTwitter className="w-3.5 h-3.5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-xl bg-[#F0FDF4] flex items-center justify-center text-[#22C55E] hover:bg-[#22C55E] hover:text-white transition-colors">
-                <FiTwitter />
+
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="w-10 h-10 rounded-xl bg-[#F0FDF4] flex items-center justify-center text-[#22C55E] hover:bg-[#22C55E] hover:text-white transition-colors"
+              >
+                <FaLinkedinIn className="w-3.5 h-3.5" />
               </a>
             </div>
           </div>

@@ -13,7 +13,7 @@ import {
   LucideIcon,
 } from "lucide-react";
 
-// Goal টাইপ ডিফাইন করা হলো
+// Goal 
 interface Goal {
   key: "weight_loss" | "muscle_gain" | "endurance";
   label: string;
@@ -21,7 +21,7 @@ interface Goal {
   blurb: string;
 }
 
-// Slide টাইপ ডিফাইন করা হলো
+// Slide 
 interface Slide {
   image: string;
   quote: string;
@@ -71,7 +71,7 @@ const slides: Slide[] = [
 ];
 
 const Hero: React.FC = () => {
- 
+
   const [activeGoal, setActiveGoal] = useState<Goal["key"]>("weight_loss");
   const [slideIndex, setSlideIndex] = useState<number>(0);
 
@@ -145,11 +145,10 @@ const Hero: React.FC = () => {
                       onClick={() => setActiveGoal(goal.key)}
                       whileHover={{ y: -2 }}
                       whileTap={{ scale: 0.97 }}
-                      className={`relative flex items-center gap-2 px-4 py-2.5 rounded-xl border text-sm font-medium transition-colors cursor-pointer ${
-                        active
+                      className={`relative flex items-center gap-2 px-4 py-2.5 rounded-xl border text-sm font-medium transition-colors cursor-pointer ${active
                           ? "bg-[#22C55E] border-[#22C55E] text-[#0F172A]"
                           : "bg-white/5 border-white/10 text-slate-300 hover:border-white/25"
-                      }`}
+                        }`}
                     >
                       <Icon className="w-4 h-4" />
                       {goal.label}
@@ -228,7 +227,7 @@ const Hero: React.FC = () => {
                       <Star key={i} className="w-3.5 h-3.5 fill-[#F59E0B] text-[#F59E0B]" />
                     ))}
                   </div>
-               
+
                   <p className="text-sm text-white leading-snug">
                     {`"${slides[slideIndex].quote}"`}
                   </p>
@@ -249,11 +248,10 @@ const Hero: React.FC = () => {
                   className="p-1 cursor-pointer"
                 >
                   <span
-                    className={`block h-1.5 rounded-full transition-all duration-300 ${
-                      i === slideIndex
+                    className={`block h-1.5 rounded-full transition-all duration-300 ${i === slideIndex
                         ? "w-6 bg-[#22C55E]"
                         : "w-1.5 bg-white/20"
-                    }`}
+                      }`}
                   />
                 </button>
               ))}

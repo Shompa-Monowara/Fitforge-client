@@ -52,13 +52,13 @@ export default function LoginPage() {
   };
 
   const fillDemoMember = () => {
-    setEmail("member@fitforge.ai");
-    setPassword("Member12345");
+    setEmail("user@fitforge01.com");
+    setPassword("User@1234");
   };
 
   const fillDemoTrainer = () => {
-    setEmail("trainer@fitforge.ai");
-    setPassword("Trainer12345");
+    setEmail("admin@fitforge.com");
+    setPassword("Admin@1234");
   };
 
   const inputClassName =
@@ -95,7 +95,7 @@ export default function LoginPage() {
                   onClick={fillDemoTrainer}
                   className="flex-1 border border-[#FDE68A] bg-white text-[#B45309] hover:bg-[#FFFBEB] text-xs font-bold h-10 rounded-xl transition-all cursor-pointer"
                 >
-                  Demo Trainer
+                  Demo Admin
                 </button>
               </div>
 
@@ -158,7 +158,7 @@ export default function LoginPage() {
             <div className="text-center text-xs text-[#94A3B8] font-medium">
               Don&apos;t have an account?{" "}
               <NextLink
-                href="/register"
+                href="/auth/register"
                 className="text-[#22C55E] font-black ml-1 uppercase text-[11px] tracking-wider hover:text-[#16A34A]"
               >
                 Register here

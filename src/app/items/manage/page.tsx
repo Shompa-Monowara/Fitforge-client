@@ -6,6 +6,8 @@ import Link from "next/link";
 import { FiEye, FiPlus, FiInbox, FiMessageSquare } from "react-icons/fi";
 import { GiWeightLiftingUp } from "react-icons/gi";
 
+export const dynamic = "force-dynamic";
+
 export default async function ManageItemsPage() {
   const data = await getManagedItems();
   const items = data?.items || [];
@@ -53,16 +55,9 @@ export default async function ManageItemsPage() {
             <FiInbox className="w-6 h-6 text-[#22C55E]" />
           </div>
           <p className="text-[#0F172A] font-bold text-lg mb-1">No plans yet</p>
-          <p className="text-[#94A3B8] text-sm mb-6">
-            Publish your first workout or nutrition plan to get started.
+          <p className="text-[#94A3B8] text-sm">
+            Publish your first workout or nutrition plan using the button above.
           </p>
-          <Link
-            href="/items/add"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#0F172A] text-white text-sm font-bold hover:bg-[#22C55E] hover:text-[#0F172A] transition-colors"
-          >
-            <FiPlus className="w-4 h-4" />
-            Add a Plan
-          </Link>
         </div>
       ) : (
         <>
@@ -132,15 +127,17 @@ export default async function ManageItemsPage() {
                     </td>
                     <td className="px-5 py-4">
                       <div className="flex items-center justify-end gap-2">
-                        {(item as any).status === "approved" && (
-                          <Link
-                            href={`/plans/${item._id}`}
-                            className="flex items-center gap-1.5 text-xs font-semibold text-[#0F172A] px-3 py-1.5 rounded-lg border border-[#E2E8F0] hover:bg-[#F1F5F9] transition-colors"
-                          >
-                            <FiEye className="w-3.5 h-3.5" />
-                            View
-                          </Link>
-                        )}
+                        <Link
+                          href={
+                            (item as any).status === "approved"
+                              ? `/plans/${item._id}`
+                              : `/items/preview/${item._id}`
+                          }
+                          className="flex items-center gap-1.5 text-xs font-semibold text-[#0F172A] px-3 py-1.5 rounded-lg border border-[#E2E8F0] hover:bg-[#F1F5F9] transition-colors"
+                        >
+                          <FiEye className="w-3.5 h-3.5" />
+                          View
+                        </Link>
                         {isAdmin && (item as any).status !== "approved" && (
                           <ApproveItemButton itemId={item._id} />
                         )}
@@ -191,16 +188,18 @@ export default async function ManageItemsPage() {
                   <span>★ {item.rating?.toFixed(1) || "New"}</span>
                 </div>
 
-                <div className="flex items-center gap-2">
-                  {(item as any).status === "approved" && (
-                    <Link
-                      href={`/plans/${item._id}`}
-                      className="flex-1 flex items-center justify-center gap-1.5 text-xs font-semibold text-[#0F172A] px-3 py-2 rounded-lg border border-[#E2E8F0] hover:bg-[#F1F5F9] transition-colors"
-                    >
-                      <FiEye className="w-3.5 h-3.5" />
-                      View
-                    </Link>
-                  )}
+                <div className="flex flex-wrap items-center gap-2">
+                  <Link
+                    href={
+                      (item as any).status === "approved"
+                        ? `/plans/${item._id}`
+                        : `/items/preview/${item._id}`
+                    }
+                    className="flex-1 flex items-center justify-center gap-1.5 text-xs font-semibold text-[#0F172A] px-3 py-2 rounded-lg border border-[#E2E8F0] hover:bg-[#F1F5F9] transition-colors"
+                  >
+                    <FiEye className="w-3.5 h-3.5" />
+                    View
+                  </Link>
                   {isAdmin && (item as any).status !== "approved" && (
                     <div className="flex-1">
                       <ApproveItemButton itemId={item._id} />

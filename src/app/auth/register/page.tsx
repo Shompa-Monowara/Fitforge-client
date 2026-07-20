@@ -59,7 +59,7 @@ export default function RegisterPage() {
     toast.success("Account created successfully!");
     await authClient.signOut();
 
-    router.push("/login");
+    router.push("/auth/login");
   };
 
   const handleGoogleSignUp = async () => {
@@ -185,7 +185,7 @@ export default function RegisterPage() {
             <div className="text-center text-xs text-[#94A3B8] font-medium">
               Already have an account?{" "}
               <Link
-                href="/login"
+                href="/auth/login"
                 className="text-[#22C55E] font-black ml-1 uppercase text-[11px] tracking-wider hover:text-[#16A34A]"
               >
                 Log in here

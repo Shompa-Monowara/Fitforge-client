@@ -31,3 +31,24 @@ export const approveItem = async (itemId: string): Promise<ActionResult> => {
     return { success: false, message: "Something went wrong. Please try again." };
   }
 };
+
+export const rejectItem = async (itemId: string): Promise<ActionResult> => {
+  try {
+    const token = await getTokenServer();
+    if (!token) return { success: false, message: "You must be logged in." };
+
+    const res = await fetch(`${API_URL}/items/${itemId}/reject`, {
+      method: "PATCH",
+      headers: { Authorization: `Bearer ${token}` },
+    });
+
+    const data = await res.json();
+    if (!res.ok) return { success: false, message: data?.message || "Failed to reject item." };
+
+    revalidatePath("/items/manage");
+    return { success: true, message: data.message };
+  } catch (error) {
+    console.error("rejectItem error:", error);
+    return { success: false, message: "Something went wrong. Please try again." };
+  }
+};

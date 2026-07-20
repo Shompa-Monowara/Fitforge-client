@@ -74,11 +74,7 @@ const Navbar = () => {
           </li>
           {user && (
             <>
-              <li>
-                <Link href="/dashboard" className={`text-sm font-semibold transition-colors ${pathname === "/dashboard" ? "text-[#22C55E]" : "text-[#475569] hover:text-[#22C55E]"}`}>
-                  Dashboard
-                </Link>
-              </li>
+
               <li>
                 <Link href="/items/add" className={`text-sm font-semibold transition-colors ${pathname === "/items/add" ? "text-[#22C55E]" : "text-[#475569] hover:text-[#22C55E]"}`}>
                   Add Plan
@@ -111,7 +107,7 @@ const Navbar = () => {
               </Link>
               <Link href="/auth/register">
                 <Button className="rounded-xl bg-[#22C55E] px-5 py-2 text-sm font-bold text-white shadow-md shadow-[#22C55E]/20 transition-all hover:bg-[#16A34A] cursor-pointer">
-                  <CgProfile className="text-base" /> Sign Up
+                  <CgProfile className="text-base" /> Register
                 </Button>
               </Link>
             </>
@@ -137,11 +133,7 @@ const Navbar = () => {
                     <p className="text-[10px] text-[#94A3B8] truncate mt-0.5">{user?.email}</p>
                   </div>
                   <Dropdown.Menu className="bg-white border-x border-b border-[#E2E8F0] text-[#475569] rounded-b-xl w-48 p-1">
-                    <Dropdown.Item id="dashboard" textValue="Dashboard" className="hover:bg-[#F0FDF4] hover:text-[#16A34A] rounded-lg transition-colors">
-                      <Link className="flex items-center gap-2 text-xs font-semibold py-1" href="/dashboard">
-                        <MdDashboard className="text-[#22C55E] text-sm" /> Dashboard
-                      </Link>
-                    </Dropdown.Item>
+
                     <Dropdown.Item id="add-plan" textValue="Add Plan" className="hover:bg-[#F0FDF4] hover:text-[#16A34A] rounded-lg transition-colors">
                       <Link className="flex items-center gap-2 text-xs font-semibold py-1" href="/items/add">
                         <MdAddCircleOutline className="text-[#22C55E] text-sm" /> Add Plan
@@ -205,15 +197,7 @@ const Navbar = () => {
             </li>
             {user && (
               <>
-                <li>
-                  <Link
-                    href="/dashboard"
-                    onClick={() => setIsMenuOpen(false)}
-                    className={`block text-sm font-semibold p-2 rounded-lg ${pathname === "/dashboard" ? "bg-[#F0FDF4] text-[#22C55E]" : "text-[#475569]"}`}
-                  >
-                    Dashboard
-                  </Link>
-                </li>
+
                 <li>
                   <Link
                     href="/items/add"
